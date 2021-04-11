@@ -19,6 +19,14 @@ namespace AbstractPattern
             Console.WriteLine(body.GetType());
             Console.WriteLine(wheel.GetType());
 
+            factory = new GtFactory();
+            body = factory.CreateBody();
+            wheel = factory.CreateWheel();
+
+
+            Console.WriteLine(body.GetType());
+            Console.WriteLine(wheel.GetType());
+
         }
     }
 
@@ -60,6 +68,31 @@ namespace AbstractPattern
     }
 
 
+
+
+
+    public class GtFactory : IBikeFactory
+    {
+        public Body CreateBody()
+        {
+            return new GtBody();
+        }
+
+        public Wheel CreateWheel()
+        {
+            return new GtWheel();
+        }
+    }
+
+    public class GtBody : Body
+    {
+
+    }
+
+    public class GtWheel : Wheel
+    {
+
+    }
 
 
 
